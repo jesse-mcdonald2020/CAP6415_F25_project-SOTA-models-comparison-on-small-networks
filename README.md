@@ -1,1 +1,3 @@
 # CAP6415_F25_project-SOTA-models-comparison-on-small-networks
+
+---DESCRIPTION WIP---
