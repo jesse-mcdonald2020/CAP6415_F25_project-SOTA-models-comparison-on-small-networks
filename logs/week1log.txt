@@ -1,0 +1,7 @@
+---WEEK 1 DEVELOPMENT LOG---
+
+-Created a GitHub account using my FAU email.
+-Created the project repository.
+-Added some structure to the repository with the "logs" folder. Structure is still very work in progress.
+-Initial research on models for model selection. Model selection is currently based on Roboflow and HuggingFace leaderboards.
+-Briefly surveyed Kaggle to find suitable datasets. Might consider other aveunues for dataset selection.
