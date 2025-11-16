@@ -1,0 +1,9 @@
+---WEEK 2 DEVELOPMENT LOG---
+
+-Selected the first model, EfficientNetV2S. I have other models in mind as well, but I need to do more research in them to see if they fit the scope of the project.
+-Selected the dataset, a Kaggle dataset based around dog breed images.
+--Link to the dataset: https://www.kaggle.com/datasets/gpiosenka/70-dog-breedsimage-data-set/data
+-Added more structure to the repository with the "data" and "models" folders. "Data" holds the data, "models" is planned to hold the notebooks used for building the models.
+-Added the data to the repository.
+--I accidentally committed the data using my personal GitHub account. I fixed the issue as you can see with the commit after, but I just wanted to let you know that "jesseville" is still me and not another person.
+-Started working on the build notebook for EfficientNetV2S, but it is still very work in progress.
