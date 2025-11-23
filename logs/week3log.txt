@@ -1,0 +1,9 @@
+---WEEK 3 DEVELOPMENT LOG---
+
+-Selected the other two models, ResNet50V2 and ConvNeXtTiny.
+-Swapped from working with Jupyter Notebooks to Python scripts.
+--I wanted to use notebooks because I was more familiar with them; but when I started to create a virtual environment, I thought it would be easier to use Python scripts.
+-Set up the virtual environment and installed Tensorflow on it.
+--The virtual environment is will not be shown in the repository.
+-Created and made notable progress on the build scripts for each model.
+--Documentation has been worked on for the scripts, but needs to be improved.
