@@ -11,7 +11,7 @@ LEARNING_RATE (float): The speed that the model learns its weights from the erro
 SEED = 123
 IMG_SIZE = 224
 BATCH_SIZE = 64
-EPOCHS = 25
+EPOCHS = 5
 LEARNING_RATE = 1e-3
 
 """
@@ -30,7 +30,7 @@ from tensorflow.keras import Model, Input
 from tensorflow.keras.preprocessing import image_dataset_from_directory
 from tensorflow.keras.layers import Rescaling
 from tensorflow.keras.applications import ResNet50V2
-from tensorflow.keras.layers import GlobalAveragePooling2D, BatchNormalization, Dropout, Dense
+from tensorflow.keras.layers import GlobalAveragePooling2D, BatchNormalization, Dense
 from tensorflow.keras.optimizers import Adam
 
 current_path = os.path.realpath(__file__)
@@ -55,17 +55,16 @@ base_model = ResNet50V2(
 )
 
 base_model.trainable = False
+base_model.summary()
 
 inputs = Input(shape = (IMG_SIZE, IMG_SIZE, 3))
 x = base_model(inputs, training = False)
-x = GlobalAveragePooling2D()(x)
 x = BatchNormalization()(x)
-x = Dropout(0.2)(x)
+x = GlobalAveragePooling2D()(x)
 outputs = Dense(len(train_data.class_names), activation = "softmax")(x)
 model = Model(inputs, outputs)
 
 model.compile(optimizer = Adam(learning_rate = LEARNING_RATE), loss = "categorical_crossentropy", metrics = ["accuracy"])
-model.summary()
 
 history = model.fit(normalized_train, epochs = EPOCHS, verbose = 1, validation_data = normalized_valid)
 
@@ -79,9 +78,9 @@ acc_fig = plt.figure()
 acc_ax = acc_fig.add_subplot()
 acc_ax.plot(history.history["accuracy"])
 acc_ax.plot(history.history["val_accuracy"])
-acc_ax.title("ResNet50V2 Accuracy")
-acc_ax.xlabel("EPOCHS")
-acc_ax.ylabel("Accuracy")
+acc_ax.set_title("ResNet50V2 Accuracy")
+acc_ax.set_xlabel("EPOCHS")
+acc_ax.set_ylabel("Accuracy")
 acc_ax.legend(["Train", "Validation"], loc = "upper left")
 
 acc_fig.savefig(os.path.join(graph_path, "ResNet50V2_acc.png"))
@@ -92,9 +91,9 @@ loss_fig = plt.figure()
 loss_ax = loss_fig.add_subplot()
 loss_ax.plot(history.history["loss"])
 loss_ax.plot(history.history["val_loss"])
-loss_ax.title("ResNet50V2 Loss")
-loss_ax.xlabel("EPOCHS")
-loss_ax.ylabel("Loss")
+loss_ax.set_title("ResNet50V2 Loss")
+loss_ax.set_xlabel("EPOCHS")
+loss_ax.set_ylabel("Loss")
 loss_ax.legend(["Train", "Validation"], loc = "upper left")
 
 loss_fig.savefig(os.path.join(graph_path, "ResNet50V2_loss.png"))
