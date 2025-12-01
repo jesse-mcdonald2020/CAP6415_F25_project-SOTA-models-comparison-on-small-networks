@@ -1,0 +1,12 @@
+---WEEK 4 DEVELOPMENT LOG---
+
+-Added more structure to the GitHub repository ("checkpoints" and "training_graphs").
+--The "checkpoints" folder is used to store models built in the the model build functions, and the "training_graphs" folder is used to store PyPlot graphs to determine the training of the model.
+--Within the "training_graphs" folder there are subfolders that are used to separate the graphs for each model.
+-Updated the build model scripts to perform transfer learning instead of building each model from scratch.
+--This was done to prevent overfitting and greatly reduce the training time for each model.
+-Built an initial model for EfficientNetV2S and ResNet50V2 and stored them in the "checkpoint folder."
+--ConvNeXtTiny appears to work as well, but was not built as it was the one that takes the longest.
+--I may rebuild these models for the final submission.
+-Created PyPlot graphs for the EfficientNetV2S and ResNet50V2 models to show how the training went for both models.
+--Both models show an accuracy above 95% which is a good sign.
